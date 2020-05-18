@@ -1,3 +1,28 @@
+# Mutations - Mutable Firmware in Firmware
+
+This repository contains my experiments with the [Mutable Instruments firmware repository](https://github.com/pichenettes/eurorack).
+
+## Acknowledgements
+
+Thank you to Emilie Gillet for creating these wonderful devices and for sharing her work with the community.
+
+## Disclaimer
+
+This variation on the original firmware source code is provided for my own entertainment and yours if you choose to use it.
+
+The source code and executables are **provided as-is with no guarantees** of any kind.
+
+All changes in this repository follow the same licensing as the original firmware (see `LICENSE` section below for licensing details).
+
+# Changelog
+
+## Stratus v1.0.0 (based on Clouds v1.31)
+
+- Reverb always applied to DRY signal
+
+
+# Original README content
+
 Mutable Instruments' Eurorack Modules.
 
 * [Blinds](http://mutable-instruments.net/modules/blinds): Quad VC-polarizer.
@@ -26,8 +51,7 @@ Mutable Instruments' Eurorack Modules.
 * [Warps](http://mutable-instruments.net/modules/warps): Meta-modulator.
 * [Yarns](http://mutable-instruments.net/modules/yarns): MIDI interface.
 
-License
-=======
+## License
 
 Code (AVR projects): GPL3.0.
 
@@ -37,8 +61,7 @@ Hardware: cc-by-sa-3.0
 
 By: Emilie Gillet (emilie.o.gillet@gmail.com)
 
-Guidelines for derivative works
-===============================
+## Guidelines for derivative works
 
 **Mutable Instruments is a registered trademark.**
 
