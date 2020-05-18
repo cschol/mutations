@@ -1,4 +1,4 @@
-# Mutations - Mutable Firmware in Firmware
+# Mutations - Mutable Experiments in Firmware
 
 This repository contains my experiments with the [Mutable Instruments firmware repository](https://github.com/pichenettes/eurorack).
 
