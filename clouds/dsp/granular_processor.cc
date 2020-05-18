@@ -259,7 +259,7 @@ void GranularProcessor::Process(
   // This is what is fed back. Reverb is not fed back.
   copy(&out_[0], &out_[size], &fb_[0]);
   
-  // Apply reverb.
+  // Set up reverb.
   float reverb_amount = parameters_.reverb * 0.95f;
   reverb_amount += feedback * (2.0f - feedback) * freeze_lp_;
   CONSTRAIN(reverb_amount, 0.0f, 1.0f);
@@ -269,7 +269,6 @@ void GranularProcessor::Process(
   reverb_.set_time(0.35f + 0.63f * reverb_amount);
   reverb_.set_input_gain(0.2f);
   reverb_.set_lp(0.6f + 0.37f * feedback);
-  reverb_.Process(out_, size);
   
   const float post_gain = 1.2f;
   ParameterInterpolator dry_wet_mod(&dry_wet_, parameters_.dry_wet, size);
@@ -279,10 +278,17 @@ void GranularProcessor::Process(
     float fade_out = Interpolate(lut_xfade_out, dry_wet, 16.0f);
     float l = static_cast<float>(input[i].l) / 32768.0f * fade_out;
     float r = static_cast<float>(input[i].r) / 32768.0f * fade_out;
-    l += out_[i].l * post_gain * fade_in;
-    r += out_[i].r * post_gain * fade_in;
-    output[i].l = SoftConvert(l);
-    output[i].r = SoftConvert(r);
+    out_[i].l = l + out_[i].l * post_gain * fade_in;
+    out_[i].r = r + out_[i].r * post_gain * fade_in;
+  }
+
+  // Apply reverb post dry-wet.
+  reverb_.Process(out_, size);
+
+  // Set outputs
+  for (size_t i = 0; i < size; ++i) {
+    output[i].l = SoftConvert(out_[i].l);
+    output[i].r = SoftConvert(out_[i].r);
   }
 }
 
