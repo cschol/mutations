@@ -6,6 +6,12 @@ This repository contains my experiments with the [Mutable Instruments firmware r
 
 Thank you to Emilie Gillet for creating these wonderful devices and for sharing her work with the community.
 
+The work in this repository was also inspired by other custom firmware for Mutable Instruments modules:
+- Matthias Puech's [Parasites](https://mqtthiqs.github.io/parasites)
+- Tim Churches' [Mutated Mutables](https://github.com/timchurches/Mutated-Mutables)
+
+Thank you to those developers for leading the way in customizing this firmware.
+
 ## Disclaimer
 
 This variation on the original firmware source code is provided for my own entertainment and yours if you choose to use it.
